@@ -14,7 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
 import re
 import site
 import sys
@@ -34,19 +33,17 @@ with open("requirements.txt") as f:
 
     required = [git_match_requirement(req) for req in f.read().splitlines()]
 
-plugins_list = ["ec2 = covalent_ec2_plugin.ec2"]
+plugins_list = ["azure = covalent_azure_plugin.azure"]
 
 setup_info = {
-    "name": "covalent-ec2-plugin",
+    "name": "covalent-azure-plugin",
     "packages": find_packages(exclude=["tests"]),
     "version": version,
-    "maintainer": "Agnostiq",
-    "url": "https://github.com/AgnostiqHQ/covalent-ec2-plugin",
-    "download_url": f"https://github.com/AgnostiqHQ/covalent-ec2-plugin/archive/v{version}.tar.gz",
+    "maintainer": "Mila",
     "license": "Apache License 2.0",
     "author": "Agnostiq",
     "author_email": "support@agnostiq.ai",
-    "description": "Covalent EC2 Plugin",
+    "description": "Covalent Azure Plugin",
     "long_description": open("README.md").read(),
     "long_description_content_type": "text/markdown",
     "include_package_data": True,

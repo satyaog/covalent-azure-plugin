@@ -14,4 +14,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .ec2 import EC2Executor
+from .azure import AzureExecutor

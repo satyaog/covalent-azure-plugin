@@ -5,9 +5,11 @@ deps_pip = ct.DepsPip(packages=["numpy==1.22.4", "scikit-learn==1.1.2"])
 
 import covalent as ct
 
+pytestmark = pytest.mark.timeout(10*60)
+
 
 @pytest.mark.functional_tests
-def test_svm_model():
+def test_svm_model(executor):
     from numpy.random import permutation
     from sklearn import datasets, svm
 
@@ -19,7 +21,7 @@ def test_svm_model():
         iris.target = iris.target[perm]
         return iris.data, iris.target
 
-    @ct.electron(executor="ec2", deps_pip=deps_pip)
+    @ct.electron(executor=executor, deps_pip=deps_pip)
     def train_svm(data, C, gamma):
         X, y = data
         clf = svm.SVC(C=C, gamma=gamma)

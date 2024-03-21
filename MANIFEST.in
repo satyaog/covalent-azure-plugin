@@ -1,3 +1,3 @@
 include VERSION
 include requirements.txt
-recursive-include covalent_ec2_plugin/infra/ *
+recursive-include covalent_azure_plugin/infra/ *

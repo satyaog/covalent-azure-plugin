@@ -1,2 +1,4 @@
-covalent-aws-plugins>=0.12.0,<1
 covalent-ssh-plugin>=0.17.0,<1
+# Workaround https://github.com/ronf/asyncssh/issues/678
+asyncssh<2.15
+azure-cli
